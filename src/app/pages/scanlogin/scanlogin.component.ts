@@ -11,7 +11,7 @@ export class ScanloginComponent implements OnInit {
   scannerEnabled:boolean=true;
   allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
  constructor() {
-   console.log('this is testing for again check');
+   console.log('now check usernsame in commit chnage or not');
    
   }
 
