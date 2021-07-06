@@ -1,0 +1,32 @@
+<div class="container">
+  <br>
+  <div class="jumbotron">
+  <h1 class="display-4">TalkPoint</h1>
+  <br>
+  <textarea id ="message" class="form-control" placeholder="Your Message Here" #userMessage (keypress)="onUserTyping()" >
+ </textarea>
+ <p *ngIf="typing">Someone is Typing ...</p>
+  <br>
+  <button id="send" class="btn btn-success" (click)="getInput(userMessage)">Send</button>
+  <button id="send" class="btn btn-success" (click)="logout()">Logout</button>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <ul class="list-group" *ngIf="activeUserName">
+        <li class="list-group-item">Active user</li>
+        <li class="list-group-item" *ngFor="let user of activeUserName">{{user}}</li>
+      </ul>
+    </div>
+    <div class="col-md-7">
+      <ul class="list-group mt-2" *ngIf="userData">
+        <li class="list-group-item" *ngFor="let user of userData" (click)="OnGetId(user._id)">
+
+        {{user.messages}}
+        - Date : {{user.date | niceDateFormat }} - {{user.date |date}}</li>
+        <!-- | date:'h:mm a' -->
+      </ul>
+
+    </div>
+  </div>
+  </div>
+

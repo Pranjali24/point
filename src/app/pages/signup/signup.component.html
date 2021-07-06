@@ -1,0 +1,33 @@
+<h1 class="display-5 text-center ">TalkPoint Signup</h1>
+
+<div class="container mt-5 border p-5">
+  <form (ngSubmit)="getUserDetail()" #form="ngForm">
+    <div class="form-group my-3">
+      <label for="name">Full Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" ngModel name="fullname" required>
+    </div>
+    <div class="form-group my-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email" ngModel name="email" required>
+    </div>
+    <div class="form-group my-3">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter Password" ngModel name="password" required>
+    </div>
+
+    <div class="form-group my-3">
+      <label for="">ChatRoom</label>
+      <select name="chatroom" class="form-control" ngModel >
+        <option value="M001" selected>M001</option>
+        <option value="M002">M002</option>
+        <option value="M003">M003</option>
+        <option value="M004">M004</option>
+      </select>
+
+    </div>
+
+    <button type="submit" class="btn btn-success mx-3">Signup</button>
+    <a routerLink="/" class="btn btn-primary">Login</a>
+  </form>
+
+</div>
