@@ -1,6 +1,6 @@
 <h1 class="display-5 text-center ">TalkPoint Scanner Login</h1>
 
 
-<zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+<zxing-scanner [formats]="allowedFormats" (click)="onGetValue($event)"></zxing-scanner>
 
  <!-- <zxing-scanner></zxing-scanner> -->

@@ -19,6 +19,11 @@ export class ScanloginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onGetValue(value){
+    console.log(value);
+    
+  }
   
 }
 
