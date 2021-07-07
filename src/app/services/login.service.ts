@@ -9,12 +9,13 @@ export class LoginService {
   constructor(private http:HttpClient){}
 
   baseURL="http://localhost:3000/"
-  newBaseURL="https://talk102.herokuapp.com/"
+  newBaseURL="https://pointbackend.herokuapp.com/"
 
 
   //  generate JWT toke 
   generateJWTToken(){
-   return this.http.get(this.newBaseURL+"api/token")
+   return this.http.get<{token:string}>(this.newBaseURL+"api/token")
+
 
   }
   // get user details from JWT token

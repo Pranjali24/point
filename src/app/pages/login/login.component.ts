@@ -11,20 +11,24 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 })
 export class LoginComponent implements OnInit {
   
+  // @ViewChild('form') userDetail:NgForm
+
   name='Angular'+ VERSION.major;
   elementType = NgxQrcodeElementTypes.URL;
   errorCorrectionLevel =  NgxQrcodeErrorCorrectionLevels.HIGH;
-  value: any;
+  value : string = '';
+
+ 
   constructor( private loginService:LoginService, private websocketService:WebsocketService, private _router:Router ){
-    
+    this.loginService.generateJWTToken().subscribe(getToken=>{
+      this.value = getToken.token
+      console.log("getToken ",getToken);
+            
+    })
   }
   ngOnInit(){
-    this.loginService.generateJWTToken().subscribe(getToken=>{
-      this.value = getToken
-      
-    })
-
-    // listen event when sccaner scan the code
+    
+    // listen event when scanner scan the code
 
     this.websocketService.listen('login').subscribe(data=>{
       console.log(data);
