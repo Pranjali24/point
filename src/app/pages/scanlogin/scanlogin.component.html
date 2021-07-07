@@ -1,6 +1,16 @@
 <h1 class="display-5 text-center ">TalkPoint Scanner Login</h1>
 
 
-<zxing-scanner [formats]="allowedFormats" (click)="onGetValue($event)"></zxing-scanner>
+<!-- <zxing-scanner [formats]="allowedFormats" (click)="onGetValue($event)"></zxing-scanner> -->
 
  <!-- <zxing-scanner></zxing-scanner> -->
+
+ 
+ <!-- <zxing-scanner [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
+    [formats]="formatsEnabled" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
+    (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner> -->
+
+
+ <zxing-scanner [torch]="torchEnabled" (scanSuccess)="onCodeResult($event)"
+    [formats]="formatsEnabled" [tryHarder]="tryHarder" 
+    (camerasFound)="onCamerasFound($event)"></zxing-scanner>
