@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BarcodeFormat } from '@zxing/library';
 import { BehaviorSubject } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-scanlogin',
@@ -9,41 +12,52 @@ import { BehaviorSubject } from 'rxjs';
 })
  
 export class ScanloginComponent implements OnInit {
-  scannerEnabled:boolean=true;
-  allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
- constructor() {
-   console.log('now check usernsame in commit chnage or not');
-   console.log('hello');
+  scannerEnabled: boolean = true;
+  resetEnabled: boolean = false;
+  token: any;
+  
+  constructor( private loginService:LoginService, private websocketService:WebsocketService ) {
+   console.log('Scanner Section');
     
   }
 
   ngOnInit() {
+   
   }
 
-  // onGetValue(value){
-  //   console.log(value);
-    
-  // }
-
-  torchEnabled = false;
-  torchAvailable$ = new BehaviorSubject<boolean>(false);
-  tryHarder = false;
-  formatsEnabled: BarcodeFormat[] = [
-    BarcodeFormat.CODE_128,
-    BarcodeFormat.DATA_MATRIX,
-    BarcodeFormat.EAN_13,
-    BarcodeFormat.QR_CODE,
-  ];
-  
-  
+  // Get Scanner
   onCodeResult(value){
     console.log('oncoderesult : ',value);
+    // get Scan value
+    if(value){
+      this.scannerEnabled = false;
+      this.resetEnabled = true;
+      
+      // get details from value (token) in backend
+
+      this.loginService.getDetailFromToken(value).subscribe( getUserDetail => {
+        // this output show in mobile app browser
+        console.log('userdetail from token : ', getUserDetail);
+        
+        // if token right then change url
+        // **********implement remaining
+        
+
+      })
+
+      // emit event on login component
+      this.websocketService.emit('login',true)
+      
+    }
     
   }
 
-  onCamerasFound(value){
-    console.log('cameraFound : ',value);
-    
+  // Reset the scanner again
+  onResetButtton(){
+    this.scannerEnabled = true;
+    this.resetEnabled = false;
+
   }
+
 }
 

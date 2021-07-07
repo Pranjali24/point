@@ -1,16 +1,5 @@
 <h1 class="display-5 text-center ">TalkPoint Scanner Login</h1>
 
+<button class="btn btn-primary mx-5" *ngIf="resetEnabled" (click)="onResetButtton()">Reset</button>
 
-<!-- <zxing-scanner [formats]="allowedFormats" (click)="onGetValue($event)"></zxing-scanner> -->
-
- <!-- <zxing-scanner></zxing-scanner> -->
-
- 
- <!-- <zxing-scanner [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
-    [formats]="formatsEnabled" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
-    (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner> -->
-
-
- <zxing-scanner [torch]="torchEnabled" (scanSuccess)="onCodeResult($event)"
-    [formats]="formatsEnabled" [tryHarder]="tryHarder" 
-    (camerasFound)="onCamerasFound($event)"></zxing-scanner>
+<zxing-scanner *ngIf="scannerEnabled" (scanSuccess)="onCodeResult($event)"></zxing-scanner>

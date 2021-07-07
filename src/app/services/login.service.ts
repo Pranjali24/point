@@ -9,16 +9,22 @@ export class LoginService {
   constructor(private http:HttpClient){}
 
   baseURL="http://localhost:3000/"
+  newBaseURL="https://talk102.herokuapp.com/"
+
 
   //  generate JWT toke 
-  generateJWTTOken(){
-  return this.http.get(this.baseURL+"api/token")
+  generateJWTToken(){
+   return this.http.get(this.newBaseURL+"api/token")
+
+  }
+  // get user details from JWT token
+  getDetailFromToken(token:string) {
+    return this.http.get(this.newBaseURL+"api/"+token)
 
   }
 
-
   //  new user registration
-  registerNewUser(user){
+  registerNewUser(user) {
     this.http.post<{error:any}>(this.baseURL+"api/user/registration",user).subscribe(response=>{
       console.log('user created ',response.error);
     },err => {
