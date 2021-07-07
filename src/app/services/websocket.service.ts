@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 export class WebsocketService {
 socket:any;
 usermessage:string='';
-readonly url:string="ws://localhost:3000"
+readonly url:string="ws://https://pointbackend.herokuapp.com/"
   constructor() { this.socket = io(this.url);  }
 
   listen(eventName:string){
