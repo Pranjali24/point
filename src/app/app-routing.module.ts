@@ -6,9 +6,9 @@ import { ScanloginComponent } from './pages/scanlogin/scanlogin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
-  {path:'', component:ScanloginComponent, redirectTo:'/login', pathMatch:"full"},
-  {path:'login', component:LoginComponent},
-  {path:'chat',component:ChatboxComponent ,pathMatch:"full"},
+  {path:'', component:ScanloginComponent },
+  {path:'login', component:LoginComponent },
+  {path:'chat',component:ChatboxComponent, pathMatch:"full" },
   {path:'signup',component:SignupComponent }
 ];
 
