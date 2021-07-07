@@ -8,7 +8,7 @@ const app = express();
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/TalkPoint'));
 
-app.get('/', (req, res) =>
+app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/TalkPoint/'}),
 );
 
