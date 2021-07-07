@@ -8,8 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 export class LoginService {
   constructor(private http:HttpClient){}
 
-  baseURL="http://localhost:3000/"
-  newBaseURL="https://pointbackend.herokuapp.com/"
+  baseURL = "http://localhost:3000/"
+  newBaseURL = "https://pointbackend.herokuapp.com/"
 
 
   //  generate JWT toke 

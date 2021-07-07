@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     // listen event when scanner scan the code
 
     this.websocketService.listen('login').subscribe(data=>{
-      console.log(data);
+      console.log("listing login into login.ts : **", data);
       if(data)  this._router.navigate(['/chat'])
       
     })
