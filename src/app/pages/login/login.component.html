@@ -1,15 +1,20 @@
 <h1 class="display-5 text-center ">TalkPoint Login</h1>
 
 <!-- Generate qr -->
-
-<div class="row">
+{{isScan}}
+<div class="row" *ngIf="isScan">
   <ngx-qrcode width="400"
-  [elementType]="elementType"
-  [value] = "value"
-  cssClass = "aclass"
-  errorCorrectionLevel = "L">
-</ngx-qrcode>
+   [elementType]="elementType"
+   [value] = "value"
+   cssClass = "aclass"
+   errorCorrectionLevel = "L">
+ </ngx-qrcode>
 
+</div>
+
+<div *ngIf="isLogin">
+<h2>chat component</h2>
+  <app-chatbox></app-chatbox>
 </div>
 
 

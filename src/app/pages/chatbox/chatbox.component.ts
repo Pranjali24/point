@@ -23,34 +23,36 @@ export class ChatboxComponent implements OnInit {
   ngOnInit(){
 
     console.log(localStorage.getItem('token'))
-    if(!localStorage.getItem('token'))
-    {
-      console.log('not gettoken');
+  }
+    // if(!localStorage.getItem('token'))
+    // {
+    //   console.log('not gettoken');
 
-      this.router.navigate(["/"])
-      return
-    }
+    //   this.router.navigate(["/"])
+    //   return
+    // }
+
     // get all messages
-    this.loginService.getAllMessages(localStorage.getItem('token')).subscribe(response=>{
-      console.log('all messages ',response);
-      // response.sort((val1.date,va))
-      this.userData=response.messages
-      console.log('userdata :*****',this.userData);
-     console.log('test*******',this.userData[0]);
+    // this.loginService.getAllMessages(localStorage.getItem('token')).subscribe(response=>{
+    //   console.log('all messages ',response);
+    //   // response.sort((val1.date,va))
+    //   this.userData=response.messages
+    //   console.log('userdata :*****',this.userData);
+    //   console.log('test*******',this.userData[0]);
 
 
-    })
+    // })
 
 
     // get Messages from server
-    this.websocketService.listen('message').subscribe(data=>{
-      if(data){
-        this.loginService.getAllMessages(localStorage.getItem('token')).subscribe(response=>{
-            console.log('all messages2 ',response);
-            // response.sort((val1.date,va))
-            this.userData=response.messages
-          })
-      }
+    // this.websocketService.listen('message').subscribe(data=>{
+    //   if(data){
+    //     this.loginService.getAllMessages(localStorage.getItem('token')).subscribe(response=>{
+    //         console.log('all messages2 ',response);
+    //         // response.sort((val1.date,va))
+    //         this.userData=response.messages
+    //       })
+    //   }
 
       // this.userData.push(data)
 
@@ -62,17 +64,17 @@ export class ChatboxComponent implements OnInit {
 
 
       // get active user name
-      this.loginService.getActiveUserName().subscribe(response=>{
-        this.activeUserName=response
-      })
-    })
+    //   this.loginService.getActiveUserName().subscribe(response=>{
+    //     this.activeUserName=response
+    //   })
+    // })
 
     // get active user name
-    this.loginService.getActiveUserName().subscribe(response=>{
-        console.log('get active username ',response)
-        this.activeUserName=response
-      })
-    }
+    // this.loginService.getActiveUserName().subscribe(response=>{
+    //     console.log('get active username ',response)
+    //     this.activeUserName=response
+    //   })
+    // }
 
   // get chat box messages
   getInput(umsg){
@@ -86,7 +88,7 @@ export class ChatboxComponent implements OnInit {
      this.typing=false;
     }
 
-  // show message when user typing
+//   // show message when user typing
   onUserTyping(){
     console.log('userstop typing');
    this.typing=true
@@ -94,7 +96,8 @@ export class ChatboxComponent implements OnInit {
      this.typing=false
     },6000)
   }
-// for replay
+
+// // for replay
 OnGetId(id){
   console.log(id);
 }

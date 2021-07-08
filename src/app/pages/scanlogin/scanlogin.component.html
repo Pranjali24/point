@@ -2,4 +2,6 @@
 
 <button class="btn btn-primary mx-5" *ngIf="resetEnabled" (click)="onResetButtton()">Reset</button>
 
+<button class="btn btn-primary" (click)="onLoginEventFire()">Get event</button>
+
 <zxing-scanner *ngIf="scannerEnabled" (scanSuccess)="onCodeResult($event)"></zxing-scanner>

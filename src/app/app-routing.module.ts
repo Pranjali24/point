@@ -8,7 +8,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 const routes: Routes = [
   {path:'', component:ScanloginComponent },
   {path:'login', component:LoginComponent },
-  {path:'chat',component:ChatboxComponent, pathMatch:"full" },
+  {path:'chat',component:ChatboxComponent },
   {path:'signup',component:SignupComponent }
 ];
 
